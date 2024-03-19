@@ -6,8 +6,8 @@ RUN apt-get update \
     && apt-get install -y curl git wget unzip libgconf-2-4 gdb libstdc++6 libglu1-mesa fonts-droid-fallback lib32stdc++6 python3 sed \
     && apt-get clean
 
-# Download and extract Dart SDK from a different mirror
-RUN wget -O dart-sdk.tar.gz https://dart.dev/tools/sdk/archive \
+# Download and extract Dart SDK from the official Dart website
+RUN wget -O dart-sdk.tar.gz https://dart.dev/get-dart \
     && tar -xzf dart-sdk.tar.gz -C /usr/local \
     && rm dart-sdk.tar.gz
 
