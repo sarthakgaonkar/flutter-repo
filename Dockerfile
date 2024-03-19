@@ -3,7 +3,7 @@ FROM debian:latest AS build-env
 # Install flutter dependencies
 RUN apt-get update
 RUN apt-get install -y curl git wget unzip libgconf-2-4 gdb libstdc++6 libglu1-mesa fonts-droid-fallback lib32stdc++6 python3 sed
-RUN  curl https://storage.googleapis.com/flutter_infra_release/flutter/f11015e14d2432864d50b33a4dc939e6a4f151f3/dart-sdk-linux-x64.zip
+RUN  curl -o package.zip https://storage.googleapis.com/flutter_infra_release/flutter/f11015e14d2432864d50b33a4dc939e6a4f151f3/dart-sdk-linux-x64.zip
 RUN apt-get clean
 # Clone the flutter repo
 RUN git clone https://github.com/flutter/flutter.git /usr/local/flutter
