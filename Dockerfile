@@ -3,11 +3,11 @@ FROM debian:latest AS build-env
 
 # Install required dependencies
 RUN apt-get update \
-    && apt-get install -y curl git wget unzip libgconf-2-4 gdb libstdc++6 libglu1-mesa fonts-droid-fallback lib32stdc++6 python3 sed \
+    && apt-get install -y curl git unzip libgconf-2-4 gdb libstdc++6 libglu1-mesa fonts-droid-fallback lib32stdc++6 python3 sed \
     && apt-get clean
 
-# Download Dart SDK tarball using wget
-RUN wget -qO- https://dart.dev/get-dart | tar -xz -C /usr/local/
+# Download and extract Dart SDK tarball using curl
+RUN curl -fsSL https://dart.dev/get-dart | tar -xz -C /usr/local/
 
 # Clone the flutter repo
 RUN git clone https://github.com/flutter/flutter.git /usr/local/flutter
